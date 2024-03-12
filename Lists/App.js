@@ -38,7 +38,30 @@ export default function App() {
         }}
         style={styles.flatList}
         keyExtractor={(item) => item.id.toString()}
-        ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
+        ItemSeparatorComponent={
+          <View style={{ height: 16 }} />
+        }
+        ListEmptyComponent={
+          <View style={styles.listEmptyContainer}>
+            <Text style={styles.listEmptyText}>
+              No items found.
+            </Text>
+          </View>
+        }
+        ListHeaderComponent={
+          <View style={styles.listHeaderContainer}>
+            <Text style={styles.listHeaderText}>
+              Pokemon List
+            </Text>
+          </View>
+        }
+        ListFooterComponent={
+          <View style={styles.listFooterContainer}>
+            <Text style={styles.listFooterText}>
+              End of list
+            </Text>
+          </View>
+        }
         // horizontal
       />
     </SafeAreaView>
@@ -51,9 +74,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     paddingTop: StatusBar.currentHeight
   },
+
   flatList: {
     paddingHorizontal: 16
   },
+
   card: {
     backgroundColor: "white",
     padding: 16,
@@ -63,5 +88,33 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 30
+  },
+
+  listEmptyContainer: {
+    alignItems: "center"
+  },
+  listEmptyText: {
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold"
+  },
+
+  listHeaderContainer: {
+    alignItems: "center",
+    paddingVertical: 12
+  },
+  listHeaderText: {
+    textAlign: "center",
+    fontSize: 30,
+  },
+
+  listFooterContainer: {
+    paddingVertical: 15,
+    alignItems: "center"
+  },
+  listFooterText: {
+    textAlign: "center",
+    fontSize: 30,
+    fontStyle: "italic"
   }
 });
