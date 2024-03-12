@@ -1,27 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import Box from './Components/Box';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Box style={{ backgroundColor: "red", alignSelf: "flex-start"}}>Box 1</Box>
-      <Box style={{ backgroundColor: "orange", alignSelf: "flex-end"}}>Box 2</Box>
-      <Box style={{ backgroundColor: "brown", alignSelf: "center" }}>Box 3</Box>
-      <Box style={{ backgroundColor: "green", alignSelf: "stretch" }}>Box 4</Box>
-      <Box style={{ backgroundColor: "midnightblue", alignSelf: "auto" }}>Box 5</Box>
-      <Box style={{ backgroundColor: "blue" }}>Box 6</Box>
-      <Box style={{ backgroundColor: "purple" }}>Box 7</Box>
-    </View>
+    <ScrollView style={styles.container}>
+      <Box style={{ backgroundColor: "#8e9b00", top: 75, left: 75 }}>Box 1</Box>
+      <Box style={{ backgroundColor: "#b65d1f" }}>Box 2</Box>
+      <Box style={{ backgroundColor: "#1c4c56" }}>Box 3</Box>
+      <Box 
+        style={{ 
+          backgroundColor: "#ab9156",
+          position: "absolute",
+          top: 100,
+          left: 100,
+        }}
+      >
+        Box 4
+      </Box>
+      <Box style={{ backgroundColor: "#6b0803" }}>Box 5</Box>
+      <Box style={{ backgroundColor: "#1c4c56" }}>Box 6</Box>
+      <Box style={{ backgroundColor: "#b95f21" }}>Box 7</Box>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-end",
     marginTop: 64,
-    borderColor: "red",
+    borderColor: "gray",
     borderWidth: 6,
   },
 });
