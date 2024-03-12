@@ -4,8 +4,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.darkMode}>
-        <Text>
-          Style Enheritance
+        <Text style={styles.darkModeText}>
+          Style Enheritance <Text style={styles.boldText}>in bold</Text>
         </Text>
       </View>
       <View style={[styles.Box, styles.lightblueBg, styles.boxShadow]}>
@@ -24,7 +24,13 @@ export default function App() {
 
 const styles = StyleSheet.create({
   darkMode: {
-    backgroundColor: "dark",
+    backgroundColor: "black",
+  },
+  darkModeText: {
+    color: "white",
+  },
+  boldText: {
+    fontWeight: "bold",
   },
   Box: {
     height: 250,
