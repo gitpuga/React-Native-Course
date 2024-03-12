@@ -3,10 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={[styles.Box, styles.lightblueBg]}>
+      <View style={[styles.Box, styles.lightblueBg, styles.boxShadow]}>
         <Text>lightblue box</Text>
       </View>
-      <View style={[styles.Box, styles.lightgreenBg]}>
+      <View style={[styles.Box, styles.lightgreenBg, styles.androidShadow]}>
         <Text>lightgreen box</Text>
       </View>
     </View>
@@ -15,14 +15,14 @@ export default function App() {
 
 const styles = StyleSheet.create({
   Box: {
-    height: 100,
-    width: 100,
-    padding: 10,
+    height: 250,
+    width: 250,
+    paddingHorizontal: 10,
     paddingVertical: 20,
     marginVertical: 10,
     borderColor: "black",
     borderWidth: 2,
-    borderStyle: "dotted",
+    borderColor: "purple",
     borderRadius: 5,
   },
   container: { 
@@ -35,5 +35,17 @@ const styles = StyleSheet.create({
   },
   lightgreenBg: {
     backgroundColor: "lightgreen",
-  }
+  },
+  boxShadow: {
+    shadowColor: "#333333",
+    shadowOffset: {
+      width: 6,
+      height: 6,
+    },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+  },
+  androidShadow: {
+    elevation: 10,
+  },
 });
