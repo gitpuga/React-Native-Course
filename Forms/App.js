@@ -6,17 +6,46 @@ import {
   StyleSheet,
   StatusBar,
   SafeAreaView,
-  Platform
+  Platform,
+  Image,
+  KeyboardAvoidingView
 } from 'react-native';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let errors = {};
+
+    if (!username) errors.username = "Username is required";
+    if (!password) errors.password = "Password is required";
+
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (validateForm()){
+      console.log("Submitted", username, password);
+      setUsername("");
+      setPassword("");
+      setErrors({});
+    }
+  };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAvoidingView
+      behavior="padding"
+      keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
+      style={styles.container}
+    >
       <View style={styles.form}>
+        <Image source={require("./assets/adaptive-icon.png")} style={styles.image}/>
+
         <Text style={styles.label}>Username</Text>
         <TextInput
           style={styles.input}
@@ -24,6 +53,9 @@ export default function App() {
           value={username}
           onChangeText={setUsername}
         />
+        {errors.username ? (
+          <Text style={styles.errorsText}>{errors.username}</Text>
+        ) : null}
         <Text style={styles.label}>Password</Text>
         <TextInput
           style={styles.input}
@@ -32,21 +64,24 @@ export default function App() {
           onChangeText={setPassword}
           secureTextEntry
         />
+        {errors.password && (
+          <Text style={styles.errorsText}>{errors.password}</Text>
+        )}
 
         <View style={styles.buttonContainer}>
           <Button
             title="Sign In" 
-            onPress={() => {}} 
+            onPress={() => {handleSubmit}} 
           />
           <Button
             title="Sign Up" 
-            onPress={() => {}} 
+            onPress={() => {handleSubmit}} 
           />
         </View>
       </View>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -83,7 +118,18 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between"
+    flexDirection: "row-reverse",
+    justifyContent: "space-between",
+    marginBottom: 15
   },
+  image: {
+    height: 200,
+    width: 200,
+    alignSelf: "center",
+    margin: 12
+  },
+  errorsText: {
+    color: "red",
+    marginBottom: 10
+  }
 });
