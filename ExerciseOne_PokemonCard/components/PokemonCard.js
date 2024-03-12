@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     },
 
     hp: {
+        paddingTop: 6,
         fontSize: 22
     },
 
