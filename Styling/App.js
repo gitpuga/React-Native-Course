@@ -17,12 +17,18 @@ const styles = StyleSheet.create({
   Box: {
     height: 100,
     width: 100,
-    padding: 10
+    padding: 10,
+    paddingVertical: 20,
+    marginVertical: 10,
+    borderColor: "black",
+    borderWidth: 2,
+    borderStyle: "dotted",
+    borderRadius: 5,
   },
   container: { 
     flex: 1, 
     backgroundColor: "plum", 
-    padding: 60 
+    padding: 60,
   },
   lightblueBg: {
     backgroundColor: "lightblue",
