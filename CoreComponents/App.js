@@ -1,5 +1,16 @@
 import { useState } from 'react';
-import { View, Text, VirtualizedList, Image, ImageBackground, ScrollView, Button, Pressable, Modal, StatusBar, ActivityIndicator, Alert } from 'react-native';
+import { 
+  View, 
+  Text, 
+  Image, 
+  ScrollView, 
+  Button, 
+  Pressable, 
+  Modal, 
+  StatusBar, 
+  ActivityIndicator, 
+  Alert 
+} from 'react-native';
 import LoremIpsum from './components/LoremIpsum';
 const logoImg = require("./assets/adaptive-icon.png");
 
